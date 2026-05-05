@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
+import { useLenis } from "@/hooks/use-lenis";
 import heroImg from "@/assets/hero-coffee.jpg";
 import aboutImg from "@/assets/about-barista.jpg";
 import espresso from "@/assets/menu-espresso.jpg";
@@ -27,6 +28,7 @@ export const Route = createFileRoute("/")({
 const WHATSAPP = "https://wa.me/524920000000?text=Hola%20Mulier!%20Quiero%20hacer%20un%20pedido";
 
 function Index() {
+  useLenis();
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <Nav />
