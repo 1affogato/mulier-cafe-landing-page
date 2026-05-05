@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { useLenis } from "@/hooks/use-lenis";
 import heroImg from "@/assets/hero-coffee.jpg";
-import aboutImg from "@/assets/about-barista.jpg";
+import aboutImg from "@/assets/barista.jpg";
 import espresso from "@/assets/menu-espresso.jpg";
 import latte from "@/assets/menu-latte.jpg";
 import coldbrew from "@/assets/menu-coldbrew.jpg";
@@ -11,6 +11,8 @@ import g1 from "@/assets/gallery-1.jpg";
 import g2 from "@/assets/gallery-2.jpg";
 import g3 from "@/assets/gallery-3.jpg";
 import g4 from "@/assets/gallery-4.jpg";
+import logo from "@/assets/logom.png";
+import logoAlt from "@/assets/logo-alt.jpg";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -24,8 +26,6 @@ export const Route = createFileRoute("/")({
     ],
   }),
 });
-
-const WHATSAPP = "https://wa.me/524920000000?text=Hola%20Mulier!%20Quiero%20hacer%20un%20pedido";
 
 function Index() {
   useLenis();
@@ -55,8 +55,16 @@ function Nav() {
     <header className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${scrolled ? "bg-background/85 backdrop-blur-xl border-b border-border" : ""}`}>
       <nav className="max-w-7xl mx-auto px-6 md:px-10 py-5 flex items-center justify-between">
         <a href="#" className="flex items-center gap-2.5 group">
-          <div className="w-9 h-9 rounded-full bg-cobalt flex items-center justify-center text-primary-foreground font-display text-lg italic">M</div>
-          <span className="font-display text-xl tracking-tight">Mulier<span className="text-cobalt">.</span></span>
+        <div className="flex items-center gap-2.5 mb-4">
+          <img 
+            src={logo} 
+            alt="Mulier Hogar de Café" 
+            className="h-10 w-auto object-contain"
+          />
+          <span className="font-display text-xl">
+            Mulier<span className="text-cobalt">.</span> Hogar de Café
+          </span>
+        </div>
         </a>
         <div className="hidden md:flex items-center gap-8 text-sm">
           <a href="#menu" className="hover:text-cobalt transition-colors">Menú</a>
@@ -64,9 +72,6 @@ function Nav() {
           <a href="#gallery" className="hover:text-cobalt transition-colors">Galería</a>
           <a href="#visit" className="hover:text-cobalt transition-colors">Visítanos</a>
         </div>
-        <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" className="hidden md:inline-flex items-center gap-2 bg-foreground text-background px-5 py-2.5 rounded-full text-sm font-medium hover:bg-cobalt transition-colors">
-          Pedir ahora
-        </a>
       </nav>
     </header>
   );
@@ -82,30 +87,32 @@ function Hero() {
       </div>
       <div className="max-w-7xl mx-auto w-full grid md:grid-cols-12 gap-10 items-end">
         <div className="md:col-span-8 animate-fade-up">
+        <img
+            src={logoAlt}
+            alt="Mulier Hogar de Café"
+            className="h-20 md:h-24 w-auto mb-6"
+          />
           <div className="inline-flex items-center gap-2 mb-6 text-xs uppercase tracking-[0.25em] text-cobalt">
-            <span className="w-8 h-px bg-cobalt" /> Zacatecas Centro · Desde 2021
+            <span className="w-8 h-px bg-cobalt" /> Zacatecas Centro · Desde 2024
           </div>
           <h1 className="font-display text-5xl md:text-7xl lg:text-8xl leading-[0.95] tracking-tight mb-6">
             Hogar de café,<br />
             <span className="italic text-cobalt">arte</span> y comunidad.
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-xl mb-8 leading-relaxed">
-            Café de especialidad tostado con paciencia. Un espacio azul para encontrarse, leer, estudiar o simplemente respirar.
+          <b>Café de especialidad</b> tostado con paciencia. Un espacio azul para encontrarse, leer, estudiar o simplemente respirar.
           </p>
           <div className="flex flex-wrap gap-3">
             <a href="#menu" className="inline-flex items-center gap-2 bg-cobalt text-primary-foreground px-7 py-4 rounded-full font-medium shadow-soft hover:scale-[1.02] transition-transform">
               Ver el menú
               <span aria-hidden>→</span>
             </a>
-            <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border border-foreground/20 px-7 py-4 rounded-full font-medium hover:bg-foreground hover:text-background transition-colors">
-              Pedir por WhatsApp
-            </a>
           </div>
         </div>
         <div className="md:col-span-4 md:text-right animate-fade-in">
           <div className="inline-block bg-cobalt text-primary-foreground p-6 rounded-2xl shadow-sharp max-w-xs">
             <div className="text-xs uppercase tracking-widest opacity-80 mb-2">Edición de temporada</div>
-            <div className="font-display text-2xl mb-1">Latte de Cardamomo</div>
+            <div className="font-display text-2xl mb-1">Cold Brew de Naranja</div>
             <div className="text-sm opacity-90">Disponible hasta agotar existencias.</div>
           </div>
         </div>
@@ -136,7 +143,7 @@ function About() {
         <div className="relative">
           <img src={aboutImg} alt="Barista preparando café en Mulier" loading="lazy" width={1280} height={1600} className="w-full h-[600px] object-cover rounded-2xl shadow-sharp" />
           <div className="absolute -bottom-6 -right-6 bg-cobalt text-primary-foreground p-6 rounded-2xl max-w-[220px] hidden md:block">
-            <div className="font-display text-4xl">04</div>
+            <div className="font-display text-4xl">02</div>
             <div className="text-xs uppercase tracking-widest opacity-80 mt-1">Años tostando<br />historias</div>
           </div>
         </div>
@@ -146,13 +153,13 @@ function About() {
             Un rincón azul donde el café <em className="text-cobalt not-italic">se vuelve hogar</em>.
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed mb-5">
-            Mulier nació de la obsesión por una taza honesta. Buscamos granos de pequeños productores mexicanos, los tostamos con paciencia y los servimos en un espacio pensado para conversaciones largas.
+          <b>Mulier</b> tiene su origen en el latín que significa mujer, se usa con la finalidad de que quién lo representa es una mujer.
           </p>
           <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-            Más que una cafetería, somos un punto de encuentro para estudiantes, parejas y todos los que creen que el arte y la comunidad caben en una taza.
+            Más que una cafetería, somos un punto de encuentro para estudiantes, parejas, <b>mascotas</b> y todos los que creen que el arte y la comunidad caben en una taza.
           </p>
           <div className="grid grid-cols-3 gap-6 pt-8 border-t border-border">
-            <Stat n="100%" l="Café mexicano" />
+            <Stat n="100%" l="Granos organicos" />
             <Stat n="12+" l="Variedades" />
             <Stat n="4.9★" l="Google reviews" />
           </div>
@@ -188,7 +195,6 @@ function Menu() {
               Bebidas pensadas, <em className="text-cobalt not-italic">una por una</em>.
             </h2>
           </div>
-          <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" className="text-sm underline underline-offset-4 hover:text-cobalt">Ver carta completa →</a>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {items.map((it, i) => (
@@ -206,6 +212,10 @@ function Menu() {
             </article>
           ))}
         </div>
+        <a href="#menu" className="mt-10 inline-flex items-center gap-5 bg-cobalt text-primary-foreground px-7 py-4 rounded-full font-medium shadow-soft hover:scale-[1.02] transition-transform">
+            Ver el menú completo
+          <span aria-hidden>→</span>
+        </a>
       </div>
     </section>
   );
@@ -221,9 +231,9 @@ function Testimonials() {
     <section className="py-28 px-6 md:px-10">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <div className="text-xs uppercase tracking-[0.25em] text-cobalt mb-4">La comunidad opina</div>
+          <div className="text-xs uppercase tracking-[0.25em] text-cobalt mb-5">La comunidad opina con</div>
           <h2 className="font-display text-4xl md:text-6xl leading-tight">
-            Más de <em className="text-cobalt not-italic">500 reseñas</em> con 4.9★
+            Más de <em className="text-cobalt not-italic">50 reseñas</em> con 4.9★
           </h2>
         </div>
         <div className="grid md:grid-cols-3 gap-6">
@@ -276,13 +286,10 @@ function CTA() {
             Tu próxima taza<br />ya tiene <em className="not-italic">nombre</em>.
           </h2>
           <p className="text-lg opacity-90 max-w-xl mx-auto mb-10">
-            Visítanos en Zacatecas Centro o haz tu pedido directo por WhatsApp. Mostrando este sitio: <strong>10% off</strong> en tu primera bebida.
+            Visítanos en Zacatecas Centro! Mostrando este sitio: <strong>10% off</strong> en tu primera bebida.
           </p>
           <div className="flex flex-wrap gap-3 justify-center">
-            <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-background text-foreground px-7 py-4 rounded-full font-medium hover:scale-[1.02] transition-transform">
-              Pedir por WhatsApp
-            </a>
-            <a href="https://maps.google.com/?q=Zacatecas+Centro" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border border-primary-foreground/40 px-7 py-4 rounded-full font-medium hover:bg-primary-foreground hover:text-cobalt transition-colors">
+            <a href="https://maps.app.goo.gl/B3SzaRs4A55oMP6t9" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border border-primary-foreground/40 px-7 py-4 rounded-full font-medium hover:bg-primary-foreground hover:text-cobalt transition-colors">
               Cómo llegar
             </a>
           </div>
@@ -298,7 +305,15 @@ function Footer() {
       <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-10">
         <div className="md:col-span-2">
           <div className="flex items-center gap-2.5 mb-4">
-            <div className="w-9 h-9 rounded-full bg-cobalt flex items-center justify-center text-primary-foreground font-display text-lg italic">M</div>
+          <div className="flex items-center gap-2.5 mb-4">
+            <img 
+              src={logo} 
+              alt="Mulier Hogar de Café" 
+              className="h-10 w-auto object-contain"
+            />
+            <span className="font-display text-xl">
+            </span>
+          </div>
             <span className="font-display text-xl">Mulier<span className="text-cobalt">.</span> Hogar de Café</span>
           </div>
           <p className="text-muted-foreground max-w-sm">Café de especialidad, arte y comunidad en el corazón de Zacatecas.</p>
@@ -313,7 +328,6 @@ function Footer() {
           <ul className="space-y-2 text-sm">
             <li><a href="#" className="hover:text-cobalt">Instagram</a></li>
             <li><a href="#" className="hover:text-cobalt">TikTok</a></li>
-            <li><a href={WHATSAPP} className="hover:text-cobalt">WhatsApp</a></li>
           </ul>
         </div>
       </div>
