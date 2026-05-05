@@ -28,6 +28,7 @@ export const Route = createFileRoute("/")({
 const WHATSAPP = "https://wa.me/524920000000?text=Hola%20Mulier!%20Quiero%20hacer%20un%20pedido";
 
 function Index() {
+  useLenis();
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <Nav />
