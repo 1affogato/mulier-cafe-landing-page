@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
+import { useLenis } from "@/hooks/use-lenis";
 import heroImg from "@/assets/hero-coffee.jpg";
 import aboutImg from "@/assets/about-barista.jpg";
 import espresso from "@/assets/menu-espresso.jpg";
