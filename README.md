@@ -229,9 +229,3 @@ Hero About Menu Gallery CTA
 ## Inspiration
 
 The project was created as a modern digital presence for a specialty coffee shop, emphasizing coffee culture, community, and design through a contemporary web experience.
-
----
-
-## Author
-
-Software Engineering student passionate about Web Development, UI/UX Design, Data Analytics, and Artificial Intelligence.
